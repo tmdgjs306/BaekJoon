@@ -1,6 +1,24 @@
 import java.util.Scanner;
 
-public class BOJ_LCS {
+public class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BOJ_LCS {
 
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
@@ -36,3 +54,5 @@ public class BOJ_LCS {
     }
 
 }
+
+
