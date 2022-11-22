@@ -22,6 +22,10 @@ public class H_5430 {
                     q.add(Integer.parseInt(v));
                 }
             }
+            if(count==0)
+            {
+                String s= sc.next();
+            }
             for(int t=0; t<order.length(); t++)
             {
                 if(order.charAt(t)=='R')
@@ -33,9 +37,7 @@ public class H_5430 {
                 }
                 else {
                     if (q.isEmpty()) {
-                        System.out.println("error");
                         er = true;
-                        break;
                     } else if (reverse) {
                         q.removeLast();
                     } else {
@@ -43,15 +45,45 @@ public class H_5430 {
                     }
                 }
             }
-            if(!er && reverse)
+            if(er)
             {
-                String s;
-                Iterator back =q.descendingIterator();
-
+                System.out.println("error");
+            }
+            else if(!er && reverse)
+            {
+                StringBuilder br =new StringBuilder("[");
+                int n = q.size();
+                if(n==0)
+                {
+                    br.append("]");
+                    System.out.println(br);
+                    continue;
+                }
+                for(int j=0; j<n-1; j++)
+                {
+                    br.append(q.pollLast()+",");
+                }
+                br.append(q.pollLast());
+                br.append("]");
+                System.out.println(br);
             }
             else if(!er)
             {
-                System.out.println(q);
+                StringBuilder br =new StringBuilder("[");
+                int n = q.size();
+                if(n==0)
+                {
+                    br.append("]");
+                    System.out.println(br);
+                    continue;
+                }
+                for(int j=0; j<n-1; j++)
+                {
+                    br.append(q.pollFirst()+",");
+                }
+                br.append(q.pollFirst());
+                br.append("]");
+                System.out.println(br);
             }
         }
     }
