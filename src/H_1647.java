@@ -8,8 +8,7 @@ public class H_1647 {
         int from;
         int to;
         int value;
-        public Path(int from, int to, int value)
-        {
+        public Path(int from, int to, int value) {
             this.from = from;
             this.to = to;
             this. value = value;
@@ -19,25 +18,19 @@ public class H_1647 {
             return this.value-o.value;
         }
     }
-    public static int find(int a)
-    {
+    public static int find(int a) {
         if(a==parent[a])
-        {
             return a;
-        }
         else
             return parent[a]=find(parent[a]);
     }
-    public static void union(int a, int b)
-    {
+    public static void union(int a, int b) {
         int Pa=find(a);
         int Pb=find(b);
-        if(Pa==Pb)
-        {
+        if(Pa==Pb) {
             return;
         }
-        else
-        {
+        else {
             parent[Pb]=Pa;
         }
     }
@@ -46,36 +39,29 @@ public class H_1647 {
         int N=sc.nextInt();
         int M=sc.nextInt();
         parent = new int[N+1];
-        for(int i=1; i<=N; i++)
-        {
+        for(int i=1; i<=N; i++) {
             parent[i] = i;
         }
         PriorityQueue <Path> queue =new PriorityQueue<>();
-        for(int i=0; i<M; i++)
-        {
+        for(int i=0; i<M; i++) {
             int from = sc.nextInt();
             int to = sc.nextInt();
             int value = sc.nextInt();
             Path temp = new Path(from,to,value);
-            queue.offer(temp);
+            queue.add(temp);
         }
         int result = 0;
         int count=0;
-        while(!queue.isEmpty())
-        {
+        while(!queue.isEmpty()) {
+            if(count==N-2) break;
             Path now = queue.poll();
-            if(find(now.from)==find(now.to))
-            {
+            if(find(now.from)==find(now.to)) {
                 continue;
             }
-            else
-            {
+            else {
                 result+=now.value;
                 union(now.from,now.to);
-                if(++count==N-2)
-                {
-                    break;
-                }
+                count++;
             }
         }
         System.out.println(result);
