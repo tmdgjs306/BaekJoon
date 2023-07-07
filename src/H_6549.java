@@ -18,20 +18,17 @@ public class H_6549 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         StringBuilder sb = new StringBuilder();
-        while (true) {
-            st = new StringTokenizer(br.readLine());
+        st = new StringTokenizer(br.readLine());
             n = Integer.parseInt(st.nextToken());
-            if (n == 0) break;
             arr = new long[n + 1];
             for (int i = 1; i <= n; i++) {
-                arr[i] = Integer.parseInt(st.nextToken());
+                arr[i] = Integer.parseInt(br.readLine());
             }
             segmentTree s = new segmentTree(n);
             s.init(1, n, 1);
             getMax(1, n,s);
             sb.append(max).append("\n");
             max = 0;
-        }
         System.out.println(sb);
     }
     static long arr[];
