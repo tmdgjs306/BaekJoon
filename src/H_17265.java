@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -21,13 +20,17 @@ public class H_17265 {
             this.val = val;
         }
     }
+
     static int n;
     static int [][] map;
     static int min = Integer.MAX_VALUE;
     static int max = Integer.MIN_VALUE;
     static int [] dx = {0,1};
     static int [] dy = {1,0};
+
+    static Queue<Node> queue = new LinkedList<>();
     public static int calc(int a, int b, int op){
+        // 아스키 코드: 43 = +, 45 = -, 42 = *
         if(op == 43){
             return a+b;
         }
@@ -40,7 +43,6 @@ public class H_17265 {
 
     }
 
-    static Queue<Node> queue = new LinkedList<>();
     public static void bfs(){
         while (!queue.isEmpty()){
             Node node = queue.poll();
@@ -61,11 +63,13 @@ public class H_17265 {
             }
         }
     }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        // 43 = +, 45 = -, 42 = *
         map = new int[n + 1][n + 1];
+
+        // 배열에 값 저장
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             for (int j = 0; j < n; j++) {
@@ -76,8 +80,11 @@ public class H_17265 {
                     map[i][j] = Integer.parseInt(s);
             }
         }
+        //BFS 탐색
         queue.add(new Node(0,0,0,map[0][0]));
         bfs();
+
+        //탐색 결과 출력
         System.out.print(max+" "+min);
     }
 }
