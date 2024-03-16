@@ -35,8 +35,10 @@ public class H_11000 {
             int end = Integer.parseInt(st.nextToken());
             queue.add(new Node(start,end));
         }
+
         while (!queue.isEmpty()){
             Node node = queue.poll();
+            // 회의룸이 없는 경우
             if(rooms.isEmpty()){
                 count++;
                 // 회의가 끝날 떄 까지 방 점유
