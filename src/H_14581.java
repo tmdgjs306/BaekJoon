@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class H_14581 {
+    public void a1(int a){
+        a+=1;
+    }
+    public String a1(String a){
+        return a;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
