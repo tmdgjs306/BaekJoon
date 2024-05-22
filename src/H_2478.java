@@ -7,6 +7,7 @@ public class H_2478 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        int [] values = new int[111];
+
+
     }
 }
